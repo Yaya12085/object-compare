@@ -1,7 +1,4 @@
-"use strict";
 // utils/compareObjects.ts
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.hasChanges = exports.getChangedFields = void 0;
 /**
  * Gets the changed fields between two objects by comparing their values
  * @param currentValue Current state of the object
@@ -10,7 +7,7 @@ exports.hasChanges = exports.getChangedFields = void 0;
  * @returns Object containing only the fields that have changed
  * @throws Error if inputs are not objects
  */
-const getChangedFields = (currentValue, originalValue, options = {}) => {
+export function getChangedFields(currentValue, originalValue, options = {}) {
     if (!currentValue ||
         !originalValue ||
         typeof currentValue !== "object" ||
@@ -91,8 +88,7 @@ const getChangedFields = (currentValue, originalValue, options = {}) => {
         }
     });
     return changedFields;
-};
-exports.getChangedFields = getChangedFields;
+}
 /**
  * Checks if an object has any changes compared to its original state
  * @param currentValue Current state of the object
@@ -101,8 +97,12 @@ exports.getChangedFields = getChangedFields;
  * @returns boolean indicating if there are any changes
  * @throws Error if inputs are not objects
  */
-const hasChanges = (currentValue, originalValue, options) => {
-    return (Object.keys((0, exports.getChangedFields)(currentValue, originalValue, options)).length >
+export function hasChanges(currentValue, originalValue, options) {
+    return (Object.keys(getChangedFields(currentValue, originalValue, options)).length >
         0);
-};
-exports.hasChanges = hasChanges;
+}
+// Add CommonJS default export compatibility
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = { getChangedFields, hasChanges };
+    module.exports.default = { getChangedFields, hasChanges };
+}

@@ -1,12 +1,28 @@
-const { generateID } = require("../dist/index");
+import { getChangedFields, hasChanges } from "object-compare";
 
-const id = generateID({
-  lang: "fr",
-  length: 2,
-  separator: "",
-  capitalize: true,
-  adjectiveCount: 0,
-  addAdverb: true,
-});
+const original = {
+  name: "John",
+  age: 30,
+  address: {
+    street: "Main St",
+    city: "Boston",
+  },
+  tags: ["user", "admin"],
+};
 
-console.log(id);
+const current = {
+  name: "John",
+  age: 30,
+  address: {
+    street: "Main St",
+    city: "Boston",
+  },
+  tags: ["user", "admin"],
+};
+
+// Get changed fields
+const changes = getChangedFields(current, original);
+console.log(changes);
+
+const hasAnyChanges = hasChanges(current, original);
+console.log(hasAnyChanges);

@@ -38,11 +38,11 @@ interface CompareOptions<T> {
  * @returns Object containing only the fields that have changed
  * @throws Error if inputs are not objects
  */
-export const getChangedFields = <T extends Record<string, any>>(
+export function getChangedFields<T extends Record<string, any>>(
   currentValue: T,
   originalValue: T,
   options: CompareOptions<T> = {}
-): Partial<T> => {
+): Partial<T> {
   if (
     !currentValue ||
     !originalValue ||
@@ -154,7 +154,7 @@ export const getChangedFields = <T extends Record<string, any>>(
   });
 
   return changedFields;
-};
+}
 
 /**
  * Checks if an object has any changes compared to its original state
@@ -164,13 +164,19 @@ export const getChangedFields = <T extends Record<string, any>>(
  * @returns boolean indicating if there are any changes
  * @throws Error if inputs are not objects
  */
-export const hasChanges = <T extends Record<string, any>>(
+export function hasChanges<T extends Record<string, any>>(
   currentValue: T,
   originalValue: T,
   options?: CompareOptions<T>
-): boolean => {
+): boolean {
   return (
     Object.keys(getChangedFields(currentValue, originalValue, options)).length >
     0
   );
-};
+}
+
+// Add CommonJS default export compatibility
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { getChangedFields, hasChanges };
+  module.exports.default = { getChangedFields, hasChanges };
+}

@@ -31,7 +31,7 @@ interface CompareOptions<T> {
  * @returns Object containing only the fields that have changed
  * @throws Error if inputs are not objects
  */
-export declare const getChangedFields: <T extends Record<string, any>>(currentValue: T, originalValue: T, options?: CompareOptions<T>) => Partial<T>;
+export declare function getChangedFields<T extends Record<string, any>>(currentValue: T, originalValue: T, options?: CompareOptions<T>): Partial<T>;
 /**
  * Checks if an object has any changes compared to its original state
  * @param currentValue Current state of the object
@@ -40,5 +40,5 @@ export declare const getChangedFields: <T extends Record<string, any>>(currentVa
  * @returns boolean indicating if there are any changes
  * @throws Error if inputs are not objects
  */
-export declare const hasChanges: <T extends Record<string, any>>(currentValue: T, originalValue: T, options?: CompareOptions<T>) => boolean;
+export declare function hasChanges<T extends Record<string, any>>(currentValue: T, originalValue: T, options?: CompareOptions<T>): boolean;
 export {};
