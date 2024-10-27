@@ -1,5 +1,5 @@
 {
-  "name": "object-compare",
+  "name": "object-compare-2",
   "version": "0.0.1",
   "description": "A TypeScript utility for comparing objects and detecting changes",
   "main": "dist/cjs/index.js",

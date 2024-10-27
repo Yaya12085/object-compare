@@ -1,15 +1,15 @@
-# object-compare
+# object-compare-2
 
 A TypeScript utility for comparing objects and detecting changes between them. This package provides robust object comparison with support for deep comparison, custom comparators, and field filtering.
 
 ## Installation
 
 ```bash
-npm install object-compare
+npm install object-compare-2
 # or
-yarn add object-compare
+yarn add object-compare-2
 # or
-pnpm add object-compare
+pnpm add object-compare-2
 ```
 
 ## Features
@@ -28,7 +28,7 @@ pnpm add object-compare
 ### Basic Usage
 
 ```typescript
-import { getChangedFields, hasChanges } from "object-compare";
+import { getChangedFields, hasChanges } from "object-compare-2";
 
 const original = {
   name: "John",
