@@ -1,0 +1,30 @@
+{
+  "name": "object-compare",
+  "version": "0.0.1",
+  "description": "",
+  "main": "/dist/index.js",
+  "types": "/dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc --watch",
+    "build": "rm -rf ./dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaya12085/object-compare.git"
+  },
+  "keywords": [],
+  "author": "Yaya Mohamed",
+  "bugs": {
+    "url": "https://github.com/Yaya12085/object-compare/issues"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/Yaya12085/object-compare#readme",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2"
+  }
+}
